@@ -9,9 +9,9 @@
       $scope.lunchItems = "";
       $scope.message = "";
       $scope.checkItems = function () {
-        
+
         //set default of 0
-        var countItems = 0;
+        var countItemsLength = 0;
 
         if(($scope.lunchItems).trim() == "")
         {
@@ -19,11 +19,20 @@
           return;
         }
 
-        countItems = ($scope.lunchItems.split(",")).length;
+        var countItems = ($scope.lunchItems.split(","));
+
+        var emptyLength = 0;
+
+        for(var i=0, l = countItems.length; i < l; i++){
+            emptyLength += (countItems[i] === undefined || countItems[i].trim() == "" ) ? 1 : 0;
+        }
+
+        countItemsLength = countItems.length - emptyLength;
+
         //can be done in a switch statement
-        if(countItems <= 3 )
+        if(countItemsLength <= 3 )
             $scope.message = "Enjoy!";
-        else if(countItems > 3)
+        else if(countItemsLength > 3)
               $scope.message = "Too Much";
       };
     }

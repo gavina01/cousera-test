@@ -17,9 +17,11 @@
          <div class="form-group">
              <input id="lunch-menu" type="text" ng-model="lunchItems"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             class="form-control"><br>
+             <span>Please Note: Empty Items are not considered as part of the count.</span>
          </div>
          <div class="form-group">
+
              <button class="btn btn-default" ng-click="checkItems()">Check If Too Much</button>
          </div>
          <div class="form-group message">
